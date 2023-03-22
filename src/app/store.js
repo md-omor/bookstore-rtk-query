@@ -1,8 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import { bookSlice } from "../features/api/bookStore";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    [bookSlice.reducerPath]: bookSlice.reducer,
   },
+  middleware: (getDefaultMiddlewares) =>
+    getDefaultMiddlewares().concat(bookSlice.middleware),
 });
