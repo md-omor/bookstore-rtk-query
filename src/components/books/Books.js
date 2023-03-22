@@ -5,7 +5,7 @@ import BookLoader from "../ui/loaders/BookLoader";
 import Book from "./Book";
 
 const Books = ({ inputText }) => {
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState("All");
   const { data: books, isLoading, isError } = useGetBooksQuery();
 
   let content = null;
